@@ -3,14 +3,12 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Dashboard from "./Dashboard/pages/Dashboard";
 
-function App() {
+const App = () => {
   return (
     <Router>
-      <main>
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-        </Routes>
-      </main>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+      </Routes>
     </Router>
   );
   // const [data, setData] = React.useState(null);
@@ -28,6 +26,6 @@ function App() {
   //     </header>
   //   </div>
   // );
-}
+};
 
 export default App;
