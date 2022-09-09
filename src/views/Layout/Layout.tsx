@@ -1,7 +1,7 @@
 import React from "react";
 import { ThemeProvider } from "@emotion/react";
 import NavBar from "../Generic/NavBar/NavBar";
-import theme from "../../assets/styles/Theme";
+import theme from "../../assets/styles/theme";
 
 const Layout = () => {
   return (
