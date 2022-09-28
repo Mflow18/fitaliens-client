@@ -53,7 +53,7 @@ export default function MenuAppBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Grid sx={{ flexGrow: 1 }} xs={6} />
+          <Grid sx={{ flexGrow: 1 }} xs={6} item={true} />
           {auth && (
             <div>
               <IconButton
