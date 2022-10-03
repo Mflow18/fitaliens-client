@@ -1,21 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { Card } from "@material-ui/core";
+import React from "react";
 import "./WorkoutList.scss";
+import WorkoutCard from "./WorkoutCard/WorkoutCard";
+import { TWorkoutList } from "./WorkoutList.types";
 
-const WorkoutList = () => {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    fetch("/workouts")
-      .then((res) => res.json())
-      .then((data) => setData(data.data));
-  }, []);
-  console.log(data);
+const WorkoutList: React.FC<TWorkoutList> = ({ list }: TWorkoutList) => {
   return (
     <>
       <div className="workoutlist-container">
-        {data.map((card: any) => {
-          return <Card>{card.name}</Card>;
+        {list.map((card, i) => {
+          return <WorkoutCard name={card.name} key={`workoutCard-${i}`} />;
         })}
       </div>
     </>
