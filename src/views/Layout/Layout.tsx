@@ -2,14 +2,17 @@ import React from "react";
 import { ThemeProvider } from "@emotion/react";
 import NavBar from "../Generic/NavBar/NavBar";
 import theme from "../../assets/styles/theme";
-import WorkoutListContainer from "../WorkoutList/WorkoutListContainer";
 
-const Layout = () => {
+type TLayout = {
+  children: JSX.Element;
+};
+
+const Layout: React.FC<TLayout> = ({ children }: TLayout) => {
   return (
     <>
       <ThemeProvider theme={theme}>
         <NavBar />
-        <WorkoutListContainer />
+        <div>{children}</div>
       </ThemeProvider>
     </>
   );

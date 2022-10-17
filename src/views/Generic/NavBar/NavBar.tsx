@@ -10,7 +10,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormGroup from "@mui/material/FormGroup";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import { Grid } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 
 export default function MenuAppBar() {
   const [auth, setAuth] = React.useState(true);
@@ -53,6 +53,9 @@ export default function MenuAppBar() {
           >
             <MenuIcon />
           </IconButton>
+          <Button href="/exercises" sx={{ my: 2, display: "block" }}>
+            Exercises
+          </Button>
           <Grid sx={{ flexGrow: 1 }} xs={6} item={true} />
           {auth && (
             <div>
