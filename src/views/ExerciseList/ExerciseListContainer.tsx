@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
-import ExerciseList from "./ExerciseList";
+import ExerciseList from "./ExerciseList/ExerciseList";
 
 const ExerciseListContainer = () => {
   const [data, setData] = useState([]);

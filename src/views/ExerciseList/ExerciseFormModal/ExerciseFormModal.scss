@@ -1,0 +1,19 @@
+.exerciseFormModal-header {
+  margin: 1rem;
+  height: 70%;
+}
+
+.exerciseFormModal-body {
+  margin: 1rem;
+  height: 70%;
+}
+
+.exerciseFormModal-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  button {
+    margin: 1rem;
+  }
+}
