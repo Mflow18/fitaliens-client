@@ -5,7 +5,10 @@ import { TExerciseList } from "./ExerciseList.types";
 import { Button } from "@mui/material";
 import ExerciseFormModal from "../ExerciseFormModal/ExerciseFormModal";
 
-const ExerciseList: React.FC<TExerciseList> = ({ list }: TExerciseList) => {
+const ExerciseList: React.FC<TExerciseList> = ({
+  list,
+  addExerciseAction,
+}: TExerciseList) => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
 
   return (
@@ -26,7 +29,7 @@ const ExerciseList: React.FC<TExerciseList> = ({ list }: TExerciseList) => {
       <ExerciseFormModal
         isOpen={modalOpen}
         handleCloseAction={() => setModalOpen(false)}
-        handleSubmit={() => console.log("coucou")}
+        handleSubmit={addExerciseAction}
       />
     </>
   );

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 import ExerciseList from "./ExerciseList/ExerciseList";
+import axios from "axios";
 
 const ExerciseListContainer = () => {
   const [data, setData] = useState([]);
@@ -11,7 +12,22 @@ const ExerciseListContainer = () => {
       .then((data) => setData(data.data));
   }, []);
 
-  return <>{data ? <ExerciseList list={data} /> : <CircularProgress />}</>;
+  const addExercise = (name: string) => {
+    console.log("action");
+    axios.post("/exercises", { name }).then((res) => {
+      console.log(res);
+    });
+  };
+
+  return (
+    <>
+      {data ? (
+        <ExerciseList list={data} addExerciseAction={addExercise} />
+      ) : (
+        <CircularProgress />
+      )}
+    </>
+  );
 };
 
 export default ExerciseListContainer;

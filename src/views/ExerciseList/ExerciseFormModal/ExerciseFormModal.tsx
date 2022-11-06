@@ -1,12 +1,12 @@
+import React, { useState } from "react";
 import { Button, TextField } from "@material-ui/core";
-import React from "react";
 import FitModal from "../../Generic/FitModal/FitModal";
 import "./ExerciseFormModal.scss";
 
 type TExerciseFormModal = {
   isOpen: boolean;
   handleCloseAction: () => void;
-  handleSubmit: () => void;
+  handleSubmit: (name: string) => void;
 };
 
 const ExerciseFormModal: React.FC<TExerciseFormModal> = ({
@@ -14,6 +14,18 @@ const ExerciseFormModal: React.FC<TExerciseFormModal> = ({
   handleCloseAction,
   handleSubmit,
 }: TExerciseFormModal) => {
+  const [nameValue, setNameValue] = useState("");
+
+  const handleName = (e: any) => {
+    setNameValue(e.target.value);
+  };
+
+  const submit = () => {
+    handleSubmit(nameValue);
+    setNameValue("");
+    handleCloseAction();
+  };
+
   return (
     <FitModal isOpen={isOpen}>
       <>
@@ -25,11 +37,13 @@ const ExerciseFormModal: React.FC<TExerciseFormModal> = ({
             id="outlined-basic"
             label="Exercise name"
             variant="outlined"
+            value={nameValue}
+            onChange={handleName}
           />
         </div>
         <div className="exerciseFormModal-footer">
           <Button onClick={() => handleCloseAction()}>Cancel</Button>
-          <Button onClick={() => handleSubmit()}>Submit</Button>
+          <Button onClick={() => submit()}>Submit</Button>
         </div>
       </>
     </FitModal>
