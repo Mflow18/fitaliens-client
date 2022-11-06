@@ -11,7 +11,17 @@ const WorkoutListContainer = () => {
       .then((data) => setData(data.data));
   }, []);
 
-  return <>{data ? <WorkoutList list={data} /> : <CircularProgress />}</>;
+  return (
+    <>
+      {data ? (
+        <WorkoutList list={data} />
+      ) : (
+        <div className="circular-progress">
+          <CircularProgress />
+        </div>
+      )}
+    </>
+  );
 };
 
 export default WorkoutListContainer;

@@ -4,3 +4,10 @@
   display: flex;
   justify-content: space-between;
 }
+
+.circular-progress {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 1rem;
+}

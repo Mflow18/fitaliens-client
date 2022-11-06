@@ -24,7 +24,9 @@ const ExerciseListContainer = () => {
       {data ? (
         <ExerciseList list={data} addExerciseAction={addExercise} />
       ) : (
-        <CircularProgress />
+        <div className="circular-progress">
+          <CircularProgress />
+        </div>
       )}
     </>
   );
