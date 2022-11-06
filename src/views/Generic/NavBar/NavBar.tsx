@@ -11,6 +11,7 @@ import FormGroup from "@mui/material/FormGroup";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import { Button, Grid } from "@mui/material";
+import "./NavBar.scss";
 
 export default function MenuAppBar() {
   const [auth, setAuth] = React.useState(true);
