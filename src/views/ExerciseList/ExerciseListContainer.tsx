@@ -13,10 +13,9 @@ const ExerciseListContainer = () => {
   }, []);
 
   const addExercise = (name: string) => {
-    console.log("action");
-    axios.post("/exercises", { name }).then((res) => {
-      console.log(res);
-    });
+    axios
+      .post("/exercises", { name: name })
+      .then((res) => setData(res.data.data));
   };
 
   return (
