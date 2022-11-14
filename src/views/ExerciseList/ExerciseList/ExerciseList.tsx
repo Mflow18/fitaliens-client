@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ExerciseList.scss";
 import FitCard from "../../Generic/FitCard/FitCard";
-import { TExerciseList } from "./ExerciseList.types";
+import { TExerciseList } from "./types";
 import { Button } from "@mui/material";
 import ExerciseFormModal from "../ExerciseFormModal/ExerciseFormModal";
 

@@ -57,6 +57,9 @@ export default function MenuAppBar() {
           <Button href="/exercises" sx={{ my: 2, display: "block" }}>
             Exercises
           </Button>
+          <Button href="/categories" sx={{ my: 2, display: "block" }}>
+            Categories
+          </Button>
           <Grid sx={{ flexGrow: 1 }} xs={6} item={true} />
           {auth && (
             <div>
