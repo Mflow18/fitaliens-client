@@ -3,8 +3,8 @@ import { Card, CardContent } from "@material-ui/core";
 
 export type TFitCard = {
   name: string;
-  description: string;
-  imageUrl: string;
+  description?: string;
+  imageUrl?: string;
 };
 
 const FitCard: React.FC<TFitCard> = ({
