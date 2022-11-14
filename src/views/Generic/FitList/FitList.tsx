@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./FitList.scss";
 import FitCard, { TFitCard } from "../../Generic/FitCard/FitCard";
 

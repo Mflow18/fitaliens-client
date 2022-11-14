@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./ExerciseList.scss";
-import FitCard from "../../Generic/FitCard/FitCard";
 import { TExerciseList } from "./types";
 import { Button } from "@mui/material";
 import ExerciseFormModal from "../ExerciseFormModal/ExerciseFormModal";
+import FitList from "../../Generic/FitList/FitList";
 
 const ExerciseList: React.FC<TExerciseList> = ({
   list,
@@ -14,16 +14,7 @@ const ExerciseList: React.FC<TExerciseList> = ({
   return (
     <>
       <div className="exerciseList-container">
-        {list.map((card, i) => {
-          return (
-            <FitCard
-              name={card.name}
-              description={card.description}
-              imageUrl={card.imageUrl}
-              key={`FitCard-${i}`}
-            />
-          );
-        })}
+        <FitList list={list} />
         <Button onClick={() => setModalOpen(true)}>Add an exercise</Button>
       </div>
       <ExerciseFormModal
