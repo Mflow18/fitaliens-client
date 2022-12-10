@@ -18,10 +18,20 @@ const ExerciseListContainer = () => {
       .then((res) => setData(res.data.data));
   };
 
+  const deleteExercise = (name: string) => {
+    axios
+      .delete("/exercises", { data: { name: name } })
+      .then((res) => setData(res.data.data));
+  };
+
   return (
     <>
       {data ? (
-        <ExerciseList list={data} addExerciseAction={addExercise} />
+        <ExerciseList
+          list={data}
+          addExerciseAction={addExercise}
+          deleteExerciseAction={deleteExercise}
+        />
       ) : (
         <div className="circular-progress">
           <CircularProgress />

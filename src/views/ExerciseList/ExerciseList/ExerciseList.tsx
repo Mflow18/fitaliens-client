@@ -8,13 +8,14 @@ import FitList from "../../Generic/FitList/FitList";
 const ExerciseList: React.FC<TExerciseList> = ({
   list,
   addExerciseAction,
+  deleteExerciseAction,
 }: TExerciseList) => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
 
   return (
     <>
       <div className="exerciseList-container">
-        <FitList list={list} />
+        <FitList list={list} deleteAction={deleteExerciseAction} />
         <Button onClick={() => setModalOpen(true)}>Add an exercise</Button>
       </div>
       <ExerciseFormModal

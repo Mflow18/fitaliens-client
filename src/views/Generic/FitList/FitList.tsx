@@ -4,9 +4,10 @@ import FitCard, { TFitCard } from "../../Generic/FitCard/FitCard";
 
 export type TFitList = {
   list: TFitCard[];
+  deleteAction?: (arg: any) => void;
 };
 
-const FitList: React.FC<TFitList> = ({ list }: TFitList) => {
+const FitList: React.FC<TFitList> = ({ list, deleteAction }: TFitList) => {
   return (
     <>
       <div className="fitList-container">
@@ -17,6 +18,7 @@ const FitList: React.FC<TFitList> = ({ list }: TFitList) => {
               description={card.description}
               imageUrl={card.imageUrl}
               key={`FitCard-${i}`}
+              deleteAction={deleteAction}
             />
           );
         })}
