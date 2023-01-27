@@ -1,0 +1,19 @@
+.categoryFormModal-header {
+  margin: 1rem;
+  height: 70%;
+}
+
+.categoryFormModal-body {
+  margin: 1rem;
+  height: 70%;
+}
+
+.categoryFormModal-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  button {
+    margin: 1rem;
+  }
+}
