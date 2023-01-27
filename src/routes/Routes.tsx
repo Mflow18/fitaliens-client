@@ -2,8 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Layout from "../views/Layout/Layout";
 import ExerciseListContainer from "../views/ExerciseList/ExerciseListContainer";
-import WorkoutListContainer from "../views/WorkoutList/WorkoutListContainer";
 import CategoriesContainer from "../views/Categories/CategoriesContainer";
+import DashboardContainer from "../views/Dashboard/DashboardContainer";
 
 const RoutesComponent: React.FC<any> = () => {
   return (
@@ -11,7 +11,7 @@ const RoutesComponent: React.FC<any> = () => {
       <Routes>
         <Route
           path="/"
-          element={<Layout children={<WorkoutListContainer />} />}
+          element={<Layout children={<DashboardContainer />} />}
         />
         <Route
           path="/exercises"

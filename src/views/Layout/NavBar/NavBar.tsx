@@ -12,6 +12,9 @@ export default function MenuAppBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="primary">
         <Toolbar>
+          <Button href="/" className={"appBar-link"}>
+            Dashboard
+          </Button>
           <Button href="/exercises" className={"appBar-link"}>
             Exercises
           </Button>
