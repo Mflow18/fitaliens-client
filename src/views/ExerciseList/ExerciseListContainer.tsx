@@ -23,7 +23,6 @@ const ExerciseListContainer = () => {
       .delete("/exercises", { data: { name: name } })
       .then((res) => setData(res.data.data));
   };
-
   return (
     <>
       {data ? (
