@@ -1,33 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 import ExerciseList from "./ExerciseList/ExerciseList";
 import axios from "axios";
+import useFetch from "../../helpers/useFetch";
+import { TExercise } from "./ExerciseList/types";
 
 const ExerciseListContainer = () => {
-  const [data, setData] = useState([]);
+  const { data } = useFetch<{ data: TExercise[] }>("/exercises");
 
-  useEffect(() => {
-    fetch("/exercises")
-      .then((res) => res.json())
-      .then((data) => setData(data.data));
-  }, []);
-
-  const addExercise = (name: string) => {
-    axios
-      .post("/exercises", { name: name })
-      .then((res) => setData(res.data.data));
+  const addExercise = (name: string, categories: string) => {
+    axios.post("/exercises", { name: name, categories: categories });
   };
 
   const deleteExercise = (name: string) => {
-    axios
-      .delete("/exercises", { data: { name: name } })
-      .then((res) => setData(res.data.data));
+    axios.delete("/exercises", { data: { name: name } });
   };
+
   return (
     <>
       {data ? (
         <ExerciseList
-          list={data}
+          list={data.data}
           addExerciseAction={addExercise}
           deleteExerciseAction={deleteExercise}
         />

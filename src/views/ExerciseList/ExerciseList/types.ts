@@ -1,7 +1,10 @@
-import { TFitCard } from "../../Generic/FitCard/FitCard";
-
 export type TExerciseList = {
-  list: TFitCard[];
-  addExerciseAction: (name: string) => void;
+  list: TExercise[];
+  addExerciseAction: (name: string, categories: string) => void;
   deleteExerciseAction: (name: string) => void;
+};
+
+export type TExercise = {
+  name: string;
+  categories?: string[];
 };

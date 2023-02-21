@@ -8,7 +8,7 @@ import { TCategoryData } from "../../Categories/types";
 type TExerciseFormModal = {
   isOpen: boolean;
   handleCloseAction: () => void;
-  handleSubmit: (name: string) => void;
+  handleSubmit: (name: string, categoryValue: string) => void;
 };
 
 const ExerciseFormModal: React.FC<TExerciseFormModal> = ({
@@ -40,7 +40,7 @@ const ExerciseFormModal: React.FC<TExerciseFormModal> = ({
   };
 
   const submit = () => {
-    handleSubmit(nameValue);
+    handleSubmit(nameValue, categoryValue);
     setNameValue("");
     handleCloseAction();
   };
