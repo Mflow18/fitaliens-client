@@ -3,7 +3,7 @@ import "./ExerciseList.scss";
 import { TExerciseList } from "./types";
 import { Button } from "@mui/material";
 import ExerciseFormModal from "../ExerciseFormModal/ExerciseFormModal";
-import FitList from "../../Generic/FitList/FitList";
+import ExerciseCard from "../ExerciseCard/ExerciseCard";
 
 const ExerciseList: React.FC<TExerciseList> = ({
   list,
@@ -15,7 +15,16 @@ const ExerciseList: React.FC<TExerciseList> = ({
   return (
     <>
       <div className="exerciseList-container">
-        <FitList list={list} deleteAction={deleteExerciseAction} />
+        <div className="list-grid">
+          {list.map((exercise, i) => {
+            return (
+              <ExerciseCard
+                exercise={exercise}
+                deleteAction={deleteExerciseAction}
+              />
+            );
+          })}{" "}
+        </div>
         <Button onClick={() => setModalOpen(true)}>Add an exercise</Button>
       </div>
       <ExerciseFormModal

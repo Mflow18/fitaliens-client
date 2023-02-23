@@ -29,7 +29,11 @@ const FitSelect: React.FC<TFitSelect> = ({
         onChange={handleChange}
       >
         {options.map((option) => {
-          return <MenuItem value={option}>{option}</MenuItem>;
+          return (
+            <MenuItem key={`select-option-${option}`} value={option}>
+              {option}
+            </MenuItem>
+          );
         })}
       </Select>
     </FormControl>

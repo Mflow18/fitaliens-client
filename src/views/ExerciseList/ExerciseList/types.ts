@@ -6,5 +6,9 @@ export type TExerciseList = {
 
 export type TExercise = {
   name: string;
-  categories?: string[];
+  categories: TCategory[];
+};
+
+type TCategory = {
+  name: string;
 };
