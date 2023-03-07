@@ -6,21 +6,23 @@ import useFetch from "../../helpers/useFetch";
 import { TExercise } from "./ExerciseList/types";
 
 const ExerciseListContainer = () => {
-  const { data } = useFetch<{ data: TExercise[] }>("/exercises");
+  const { state, refetch } = useFetch<{ data: TExercise[] }>("/exercises");
 
   const addExercise = (name: string, categories: string) => {
     axios.post("/exercises", { name: name, categories: categories });
+    refetch({});
   };
 
   const deleteExercise = (name: string) => {
     axios.delete("/exercises", { data: { name: name } });
+    refetch({});
   };
 
   return (
     <>
-      {data ? (
+      {state.data ? (
         <ExerciseList
-          list={data.data}
+          list={state.data.data}
           addExerciseAction={addExercise}
           deleteExerciseAction={deleteExercise}
         />

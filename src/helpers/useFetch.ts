@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useRef } from "react";
+import { useEffect, useReducer, useRef, useState } from "react";
 
 interface State<T> {
   data?: T;
@@ -13,7 +13,13 @@ type Action<T> =
   | { type: "fetched"; payload: T }
   | { type: "error"; payload: Error };
 
-function useFetch<T = unknown>(url?: string, options?: RequestInit): State<T> {
+function useFetch<T = unknown>(
+  url?: string,
+  options?: RequestInit
+): {
+  state: State<T>;
+  refetch: React.Dispatch<React.SetStateAction<{}>>;
+} {
   const cache = useRef<Cache<T>>({});
 
   // Used to prevent state update if the component is unmounted
@@ -39,6 +45,7 @@ function useFetch<T = unknown>(url?: string, options?: RequestInit): State<T> {
   };
 
   const [state, dispatch] = useReducer(fetchReducer, initialState);
+  const [shouldRefetch, refetch] = useState({});
 
   useEffect(() => {
     // Do nothing if the url is not given
@@ -50,10 +57,10 @@ function useFetch<T = unknown>(url?: string, options?: RequestInit): State<T> {
       dispatch({ type: "loading" });
 
       // If a cache exists for this url, return it
-      if (cache.current[url]) {
-        dispatch({ type: "fetched", payload: cache.current[url] });
-        return;
-      }
+      // if (cache.current[url]) {
+      //   dispatch({ type: "fetched", payload: cache.current[url] });
+      //   return;
+      // }
 
       try {
         const response = await fetch(url, options);
@@ -81,9 +88,12 @@ function useFetch<T = unknown>(url?: string, options?: RequestInit): State<T> {
       cancelRequest.current = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [url]);
+  }, [url, shouldRefetch]);
 
-  return state;
+  return {
+    state,
+    refetch,
+  };
 }
 
 export default useFetch;
