@@ -19,6 +19,7 @@ const ExerciseList: React.FC<TExerciseList> = ({
           {list.map((exercise, i) => {
             return (
               <ExerciseCard
+                key={`exerciseCard-${i}`}
                 exercise={exercise}
                 deleteAction={deleteExerciseAction}
               />
