@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, TextField } from "@material-ui/core";
 import FitModal from "../../Generic/FitModal/FitModal";
 import "./ExerciseFormModal.scss";
-import FitSelect from "../../Generic/FitDropdown/FitSelect";
+import FitSelect from "../../Generic/FitSelect/FitSelect";
 import { TCategoryData } from "../../Categories/types";
 
 type TExerciseFormModal = {
