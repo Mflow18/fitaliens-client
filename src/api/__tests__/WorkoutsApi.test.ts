@@ -3,8 +3,8 @@ import MockAdapter from "axios-mock-adapter";
 
 import { getWorkouts } from "../WorkoutsApi";
 
-describe("ContactsApi", () => {
-  describe("getContacts", () => {
+describe("WorkoutsApi", () => {
+  describe("getWorkouts", () => {
     let data: Array<{ id: number; name: string }>;
 
     beforeEach(() => {
@@ -12,13 +12,13 @@ describe("ContactsApi", () => {
       data = [
         {
           id: 1,
-          name: "John Doe",
+          name: "Push ups",
         },
       ];
-      mock.onGet("/api/contacts").reply(200, data);
+      mock.onGet("/api/workouts").reply(200, data);
     });
 
-    it("should return a list of contacts", async () => {
+    it("should return a list of workouts", async () => {
       const contacts = await getWorkouts();
       expect(contacts).toEqual(data);
     });
