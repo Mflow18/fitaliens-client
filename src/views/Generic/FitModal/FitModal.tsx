@@ -2,22 +2,23 @@ import React from "react";
 import { Box, Modal } from "@material-ui/core";
 import "./FitModal.scss";
 
-export type TFitModal = {
-  isOpen: boolean;
-  children: JSX.Element;
-};
+interface IFitModal {
+  readonly isOpen: boolean;
+  readonly children: React.ReactNode;
+}
 
-const FitModal: React.FC<TFitModal> = ({ isOpen, children }: TFitModal) => {
+export default function FitModal({
+  isOpen,
+  children,
+}: IFitModal): React.ReactElement<IFitModal> {
   return (
     <Modal
+      aria-describedby="modal-modal-description"
+      aria-labelledby="modal-modal-title"
       className="fitModal-container"
       open={isOpen}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
     >
       <Box className="fitModal-box">{children}</Box>
     </Modal>
   );
-};
-
-export default FitModal;
+}

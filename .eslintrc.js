@@ -74,7 +74,6 @@ module.exports = {
     "import/named": "off", // doesnt work well
     "import/no-deprecated": "off", // takes too long
     "import/default": "off", // takes too long
-    " import/order": "off", // to avoid debate
     "import/no-unresolved": "off", // module bundle is vite
     "import/no-named-as-default-member": "off", // takes too long
     "import/no-namespace": "off", // enable namespaces
@@ -84,6 +83,10 @@ module.exports = {
     "@typescript-eslint/prefer-readonly-parameter-types": "off", // overriden by functional/prefer-immutable-type
     "react/forbid-component-props": "off", // too much of a mess
     "import/no-unused-modules": "off", // takes too long
+    "no-unused-vars": "off", // handled by @typescript-eslint/no-unused-vars
+    "functional/no-return-void": "off", // messes up with interfaces
+    "react/jsx-no-bind": "off", // outdated
+    "react-perf/jsx-no-new-function-as-prop": "off",
     // ERRORS
     "import/extensions": [
       "error",

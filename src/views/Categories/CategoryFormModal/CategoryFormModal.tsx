@@ -1,24 +1,28 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { Button, TextField } from "@material-ui/core";
+
 import FitModal from "../../Generic/FitModal/FitModal";
 import "./CategoryFormModal.scss";
 
-type TCategoryFormModal = {
-  isOpen: boolean;
-  handleCloseAction: () => void;
-  handleSubmit: (name: string) => void;
-};
+interface ICategoryFormModal {
+  readonly isOpen: boolean;
+  readonly handleCloseAction: () => void;
+  readonly handleSubmit: (name: string) => void;
+}
 
-const CategoryFormModal: React.FC<TCategoryFormModal> = ({
+export default function CategoryFormModal({
   isOpen,
   handleCloseAction,
   handleSubmit,
-}: TCategoryFormModal) => {
+}: ICategoryFormModal): React.ReactElement<ICategoryFormModal> {
   const [nameValue, setNameValue] = useState("");
 
-  const handleName = (e: any) => {
-    setNameValue(e.target.value);
-  };
+  const handleName = useCallback(
+    (event: Readonly<{ target: { value: React.SetStateAction<string> } }>) => {
+      setNameValue(event.target.value);
+    },
+    []
+  );
 
   const submit = () => {
     handleSubmit(nameValue);
@@ -36,18 +40,16 @@ const CategoryFormModal: React.FC<TCategoryFormModal> = ({
           <TextField
             id="outlined-basic"
             label="Category name"
-            variant="outlined"
-            value={nameValue}
             onChange={handleName}
+            value={nameValue}
+            variant="outlined"
           />
         </div>
         <div className="categoryFormModal-footer">
-          <Button onClick={() => handleCloseAction()}>Cancel</Button>
-          <Button onClick={() => submit()}>Submit</Button>
+          <Button onClick={handleCloseAction}>Cancel</Button>
+          <Button onClick={submit}>Submit</Button>
         </div>
       </>
     </FitModal>
   );
-};
-
-export default CategoryFormModal;
+}
